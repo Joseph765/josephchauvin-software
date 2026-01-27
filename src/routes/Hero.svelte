@@ -5,7 +5,7 @@
 <div class="hero">
     <Flex direction="column">
         <Flex direction="column" gap="xs">
-            <h1>Hi, I'm  Joseph Chauvin</h1>
+            <h1>Hi, I'm  Joseph Chauvin.</h1>
             <p>I'm a front-end software engineer.</p>
         </Flex>
         <a href="#about">View my work <Icon size="l" name="arrow-down" /></a>

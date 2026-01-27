@@ -1,5 +1,5 @@
 <script>
-    import { Divider, Flex, Icon, Text } from "$volt";
+    import { Divider, Flex, Icon } from "$volt";
 </script>
 
 <div class="hero">

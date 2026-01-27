@@ -1,5 +1,5 @@
 <script>
-    import { Divider, Flex, Icon } from "$volt";
+    import { Flex, Icon } from "$volt";
 </script>
 
 <div class="hero">
@@ -8,10 +8,9 @@
             <h1>Hi, I'm  Joseph Chauvin.</h1>
             <p>I'm a front-end software engineer.</p>
         </Flex>
-        <a href="#about">View my work <Icon size="l" name="arrow-down" /></a>
+        <a href="#projects">View my work <Icon size="l" name="arrow-down" /></a>
     </Flex>
 </div>
-<Divider />
 
 <style>
     .hero {
@@ -20,6 +19,13 @@
         align-items: center;
         justify-content: center;
         padding-inline: var(--v-space-xl);
+        background: linear-gradient(135deg, #0f0f1a 0%, #1a1030 40%, #2a1a4a 70%, #0f0f1a 100%);
+        /* background: linear-gradient(to bottom right, #0a0015, #1c0033 50%, #2e004f 100%); */
+        /* background: radial-gradient(circle at 30% 70%, #6e56cf22 0%, transparent 50%), 
+            linear-gradient(180deg, #0d001f 0%, #120029 100%); */
+        background: linear-gradient(90deg, #0a0a15 0%, #150d2a 50%, #1f113f 100%);
+        /* background: linear-gradient(to right, #11001f, #200d38, #6e56cf33, #200d38, #11001f); */
+        border-bottom: 1px solid var(--v-accent-2);
     }
 
     h1,

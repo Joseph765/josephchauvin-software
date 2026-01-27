@@ -1,5 +1,7 @@
 <script>
 	import favicon from '$lib/assets/favicon.svg';
+    import "$volt/css/index.css";
+	import "../app.css";
 
 	let { children } = $props();
 </script>

@@ -136,6 +136,10 @@
             width: 100%;
         }
 
+        .skills {
+            gap: var(--v-space-l);
+        }
+
         .skill {
             display: flex;
             flex-direction: column;
@@ -143,7 +147,7 @@
             justify-content: center;
             gap: var(--v-space-s);
             height: auto;
-            width: calc(50% - 4.4rem);
+            width: calc(50% - 4rem);
             max-height: 96px;
             aspect-ratio: 1/1;
         }

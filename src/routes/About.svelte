@@ -7,7 +7,6 @@
         <Text size="4xl" weight="black" align="center" measure="none">About</Text>
         <div class="description-skills-wrapper">
             <div class="description">
-                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="156" height="156" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> -->
                  <img src="/Creek.jpg" alt="Joseph Chauvin next to a creek" />
                 <Text size="xl" measure="s">Frontend Engineer passionate about crafting beautiful, accessible, and performant web applications with JavaScript, CSS, React & Next.js or SvelteKit (my favorite). I've helped create complex dashboards for crypto companies and I was the sole contributor for a companies design system. Let’s connect!</Text>
             </div>
@@ -135,6 +134,18 @@
 
         img {
             width: 100%;
+        }
+
+        .skill {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: var(--v-space-s);
+            height: auto;
+            width: calc(50% - 4.4rem);
+            max-height: 96px;
+            aspect-ratio: 1/1;
         }
     }
 </style>

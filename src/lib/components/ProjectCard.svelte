@@ -5,7 +5,8 @@
 
 	/**
 	 * @typedef {{ value: string, label: string }} Stat
-	 * @typedef {{ slug: string, title: string, featured?: boolean, tagline: string, description: string, role: string, stack: string[], highlights?: Stat[], links?: { docs?: string, code?: string } }} Project
+	 * @typedef {{ live?: string, docs?: string, code?: string }} Links
+	 * @typedef {{ slug: string, title: string, featured?: boolean, status?: string, tagline: string, description: string, role: string, stack: string[], highlights?: Stat[], points?: string[], links?: Links }} Project
 	 */
 
 	/** @type {{ project: Project, media?: import('svelte').Snippet }} */
@@ -14,10 +15,23 @@
 
 <article class="card" class:featured={project.featured} use:reveal>
 	<div class="body">
-		<p class="role mono">{project.role}</p>
+		<div class="meta">
+			<p class="role mono">{project.role}</p>
+			{#if project.status}
+				<p class="status mono">{project.status}</p>
+			{/if}
+		</div>
 		<h3>{project.title}</h3>
 		<p class="tagline">{project.tagline}</p>
 		<p class="description">{project.description}</p>
+
+		{#if project.points?.length}
+			<ul class="points">
+				{#each project.points as point (point)}
+					<li>{point}</li>
+				{/each}
+			</ul>
+		{/if}
 
 		{#if project.highlights?.length}
 			<dl class="stats">
@@ -38,6 +52,11 @@
 
 		{#if project.links}
 			<div class="links">
+				{#if project.links.live}
+					<LinkButton href={project.links.live} external size="m">
+						Visit site <SocialIcon name="arrow-up-right" size={16} />
+					</LinkButton>
+				{/if}
 				{#if project.links.docs}
 					<LinkButton href={project.links.docs} external size="m">
 						View docs <SocialIcon name="arrow-up-right" size={16} />
@@ -80,10 +99,50 @@
 		gap: var(--v-space-m);
 	}
 
+	.meta {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: var(--v-space-s) var(--v-space-m);
+	}
+
 	.role {
 		font-size: var(--v-font-size-s);
 		color: var(--v-accent-11);
 		letter-spacing: 0.04em;
+	}
+
+	.status {
+		padding: 2px 10px;
+		border: var(--hairline);
+		border-radius: var(--v-radius-round);
+		font-size: var(--v-font-size-xs);
+		color: var(--v-color-text-weak);
+	}
+
+	.points {
+		display: flex;
+		flex-direction: column;
+		gap: var(--v-space-s);
+		list-style: none;
+	}
+
+	.points li {
+		position: relative;
+		padding-left: 1.25rem;
+		font-size: var(--v-font-size-m);
+		line-height: 1.55;
+		color: var(--v-color-text-weak);
+	}
+
+	.points li::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0.7em;
+		width: 8px;
+		height: 1px;
+		background: var(--v-accent-11);
 	}
 
 	h3 {
@@ -157,9 +216,25 @@
 		min-width: 0;
 	}
 
+	/* Grid cards: screenshot on top, body fills the rest so the buttons
+	   line up along the bottom of side-by-side cards. */
+	.card:not(.featured) {
+		grid-template-rows: auto 1fr;
+		gap: var(--v-space-l);
+	}
+
+	.card:not(.featured) .media {
+		order: -1;
+	}
+
+	.card:not(.featured) .links {
+		margin-top: auto;
+		padding-top: var(--v-space-s);
+	}
+
 	@media (max-width: 60rem) {
 		.card.featured {
-			grid-template-columns: 1fr;
+			grid-template-columns: minmax(0, 1fr);
 		}
 	}
 </style>

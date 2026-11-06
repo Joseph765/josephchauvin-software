@@ -1,7 +1,15 @@
 <script>
+	import { onMount } from 'svelte';
 	import { bio, experience, gap, showGap, skills } from '$lib/content.js';
 	import { reveal } from '$lib/actions/reveal.js';
 	import portrait from '$lib/assets/portrait.jpg?w=1280;800;480&enhanced';
+
+	// The portrait is rendered client-side only so it isn't in the server HTML.
+	// Link-preview crawlers (iMessage, LinkedIn, Facebook, WhatsApp) fall back to
+	// the first large <img> they find when there's no og:image; keeping it out
+	// means shared links show just the site name + favicon.
+	let mounted = $state(false);
+	onMount(() => (mounted = true));
 </script>
 
 <section class="section" id="experience" aria-labelledby="experience-title">
@@ -12,12 +20,14 @@
 				<h2 id="experience-title" class="section-title">A bit about me.</h2>
 
 				<figure>
-					<enhanced:img
-						src={portrait}
-						alt="Joseph Chauvin smiling, sitting on rocks beside a creek"
-						sizes="(min-width: 960px) 320px, (min-width: 520px) 480px, 100vw"
-						loading="lazy"
-					/>
+					{#if mounted}
+						<enhanced:img
+							src={portrait}
+							alt="Joseph Chauvin smiling, sitting on rocks beside a creek"
+							sizes="(min-width: 960px) 320px, (min-width: 520px) 480px, 100vw"
+							loading="lazy"
+						/>
+					{/if}
 				</figure>
 
 				{#each bio as paragraph, i (i)}
@@ -93,29 +103,29 @@
 		gap: var(--v-space-l);
 	}
 
+	/* The figure reserves the photo's space (it renders client-side only, so
+	   this prevents a layout jump), and the image is pinned to fill it. */
 	figure {
+		position: relative;
 		box-sizing: border-box;
 		width: 100%;
 		max-width: 20rem;
+		aspect-ratio: 4 / 5;
 		margin: var(--v-space-s) 0 0;
 		border-radius: 16px;
 		overflow: hidden;
 		border: var(--hairline);
+		background: var(--v-color-surface);
 	}
 
-	/* enhanced:img renders <picture><img></picture>; <picture> is inline by default. */
-	figure :global(picture) {
-		display: block;
-	}
-
-	/* Size the image from its own width + aspect ratio rather than a percentage
-	   height, which resolves inconsistently against an inline <picture>. */
+	/* Absolutely positioned, so sizing doesn't depend on the inline <picture>
+	   wrapper that enhanced:img renders around it. */
 	figure :global(img) {
+		position: absolute;
+		inset: 0;
 		display: block;
 		width: 100%;
-		max-width: 100%;
-		height: auto;
-		aspect-ratio: 4 / 5;
+		height: 100%;
 		object-fit: cover;
 		object-position: 65% 40%;
 		filter: saturate(0.9);
@@ -256,9 +266,6 @@
 		/* Cap the photo so it doesn't take over tablet-width screens. */
 		figure {
 			max-width: 30rem;
-		}
-
-		figure :global(img) {
 			aspect-ratio: 4 / 3;
 		}
 	}

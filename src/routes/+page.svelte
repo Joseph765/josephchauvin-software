@@ -14,7 +14,11 @@
 	<title>{title}</title>
 	<meta name="description" content={description} />
 	<meta name="theme-color" content="#050505" />
+	<!-- No og:image / twitter:image on purpose: link previews show just the
+	     site name + favicon. The portrait is also client-rendered so crawlers
+	     can't fall back to it (see Experience.svelte). -->
 	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content={profile.name} />
 	<meta property="og:title" content={title} />
 	<meta property="og:description" content={description} />
 	<meta name="twitter:card" content="summary" />

@@ -112,5 +112,43 @@ export const projects = [
 			docs: 'https://volt-ui.com/getting-started',
 			code: 'https://github.com/Joseph765/Volt-UI'
 		}
+	},
+	{
+		slug: 'stakeflow',
+		title: 'Stakeflow',
+		status: 'In progress',
+		tagline: 'A crypto staking dashboard built on Volt UI.',
+		description:
+			'A real-world proving ground for my design system. Every card, table and control is Volt UI, connected to live market data: prices and 7-day trends for the top coins are fetched server-side from CoinGecko and drawn as animated charts.',
+		role: 'Personal project · design & engineering',
+		stack: ['SvelteKit', 'Volt UI', 'Chart.js', 'CoinGecko API'],
+		points: [
+			'Built entirely from Volt UI components and design tokens',
+			'Live prices and 7-day sparklines, loaded server-side',
+			'Animated Chart.js graphs colored straight from the design tokens'
+		],
+		links: {
+			live: 'https://stakeflow-lovat.vercel.app',
+			code: 'https://github.com/Joseph765/stakeflow'
+		}
+	},
+	{
+		slug: '1000hills',
+		title: '1000 Hills Ministry',
+		status: 'Client project · Live',
+		tagline: 'A production website for a Houston homeless ministry.',
+		description:
+			"Built in direct partnership with the ministry's director, from gathering requirements to turning feedback into revisions, for a site that brings in volunteers, donations and visitors to its outdoor service, held seven days a week.",
+		role: 'Freelance · worked directly with the client',
+		stack: ['SvelteKit', 'TypeScript', 'Design tokens', 'Vercel'],
+		points: [
+			'Scoped, reviewed and iterated directly with the director',
+			'Live "next service" indicator that knows what time it is in Houston',
+			"Click-to-load video embeds that skip YouTube's tracking until played"
+		],
+		links: {
+			live: 'https://1000hills-sigma.vercel.app',
+			code: 'https://github.com/Joseph765/1000hills'
+		}
 	}
 ];

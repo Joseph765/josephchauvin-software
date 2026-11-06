@@ -1,94 +1,66 @@
 <script>
-    import { Button, Flex, Text } from "$volt";
+	import { projects } from '$lib/content.js';
+	import { reveal } from '$lib/actions/reveal.js';
+	import ProjectCard from '$lib/components/ProjectCard.svelte';
+	import VoltShowcase from '$lib/components/VoltShowcase.svelte';
+
+	const featured = projects.filter((p) => p.featured);
+	const rest = projects.filter((p) => !p.featured);
 </script>
 
-<div class="projects" id="projects">
-    <div class="title-content-wrapper">
-        <Text size="4xl" weight="black" align="center" measure="none">Projects</Text>
-        <div class="project">
-            <img src="/Volt-UI-Showcase.png" alt="Volt-UI Design System Project" />
-            <div class="description">
-                <Text size="3xl" weight="bold">Volt UI</Text>
-                <Text size="xl" variant="weak" measure="s">Modern design system for building consistent, high-quality interfaces fast. It gives you reusable components and design tokens so your UI stays cohesive without slowing you down.</Text>
-                <Flex>
-                    <Button variant="secondary" href="https://volt-ui.com/getting-started" target="_blank">View Documentation</Button>
-                    <Button variant="secondary" href="https://github.com/Joseph765/Volt-UI" target="_blank">View Code</Button>
-                </Flex>
-            </div>
-        </div>
-    </div>
-</div>
+<section class="section" id="work" aria-labelledby="work-title">
+	<div class="container">
+		<header use:reveal>
+			<p class="eyebrow"><span>01</span><span>/ Selected work</span></p>
+			<h2 id="work-title" class="section-title">Things I've designed and built.</h2>
+		</header>
+
+		<div class="list">
+			{#each featured as project (project.slug)}
+				<ProjectCard {project}>
+					{#snippet media()}
+						{#if project.slug === 'volt-ui'}
+							<VoltShowcase />
+						{/if}
+					{/snippet}
+				</ProjectCard>
+			{/each}
+
+			{#if rest.length}
+				<div class="grid">
+					{#each rest as project (project.slug)}
+						<ProjectCard {project} />
+					{/each}
+				</div>
+			{/if}
+		</div>
+
+		<p class="footnote mono" use:reveal>
+			↳ This site is built with Volt UI. The components above are live, so go ahead and click them.
+		</p>
+	</div>
+</section>
 
 <style>
-    .projects {
-        max-width: 1600px;
-        margin: auto;
-        padding: 12rem var(--v-space-2xl);
-    }
+	header {
+		margin-bottom: clamp(2.5rem, 5vw, 4rem);
+	}
 
-    .title-content-wrapper {
-        display: flex;
-        flex-direction: column;
-        gap: var(--v-space-2xl);
-    }
+	.list {
+		display: flex;
+		flex-direction: column;
+		gap: var(--v-space-l);
+	}
 
-    .project {
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
-        justify-content: space-between;
-    }
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+		gap: var(--v-space-l);
+	}
 
-    img {
-        height: 32rem;
-    }
-
-    .description {
-        display: flex;
-        flex-direction: column;
-        gap: var(--v-space-m);
-        width: 524px;
-    }
-
-    @media (max-width: 1580px) {
-        .projects {
-            max-width: min-content;
-        }
-
-        .project {
-            flex-direction: column;
-            gap: var(--v-space-xl);
-            align-items: start;
-        }
-
-        img {
-            height: 32rem;
-        }
-    }
-
-    @media (max-width: 1200px) {
-        .projects {
-            padding: var(--v-space-2xl);
-            max-width: 100%;
-        }
-
-        .title-content-wrapper {
-            gap: var(--v-space-xl);
-        }
-
-        .description {
-            width: 100%;
-        }
-    }
-
-    @media (max-width: 900px) {
-        .projects {
-            padding: var(--v-space-xl);
-        }
-        
-        img {
-            height: auto;
-            width: 100%;
-        }
-    }
+	.footnote {
+		margin-top: var(--v-space-l);
+		font-size: var(--v-font-size-s);
+		color: var(--v-color-text-weaker);
+	}
 </style>

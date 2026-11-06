@@ -1,6 +1,6 @@
 <script>
-    import "$volt/css/index.css";
-	import "../app.css";
+	import '$volt/css/index.css';
+	import '../app.css';
 
 	let { children } = $props();
 </script>

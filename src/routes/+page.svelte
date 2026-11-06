@@ -1,9 +1,51 @@
 <script>
-    import About from "./About.svelte";
-    import Hero from "./Hero.svelte";
-    import Projects from "./Projects.svelte";
+	import { profile } from '$lib/content.js';
+	import Header from '$lib/components/Header.svelte';
+	import Contact from './Contact.svelte';
+	import Experience from './Experience.svelte';
+	import Hero from './Hero.svelte';
+	import Projects from './Projects.svelte';
+
+	const title = `${profile.name} · Frontend Engineer`;
+	const description = profile.headline;
 </script>
 
-<Hero />
-<About />
-<Projects />
+<svelte:head>
+	<title>{title}</title>
+	<meta name="description" content={description} />
+	<meta name="theme-color" content="#050505" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content={title} />
+	<meta property="og:description" content={description} />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:title" content={title} />
+	<meta name="twitter:description" content={description} />
+</svelte:head>
+
+<a class="skip" href="#work">Skip to content</a>
+<Header />
+<main>
+	<Hero />
+	<Projects />
+	<Experience />
+	<Contact />
+</main>
+
+<style>
+	.skip {
+		position: absolute;
+		left: 1rem;
+		top: -3rem;
+		z-index: 20;
+		padding: 8px 14px;
+		border-radius: var(--v-radius);
+		background: var(--v-color-text);
+		color: var(--v-color-text-contrast);
+		text-decoration: none;
+		transition: top 0.2s;
+	}
+
+	.skip:focus {
+		top: 1rem;
+	}
+</style>

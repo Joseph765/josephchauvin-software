@@ -3,6 +3,21 @@
 	import { reveal } from '$lib/actions/reveal.js';
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
 	import MothShowcase from '$lib/components/MothShowcase.svelte';
+	import Screenshot from '$lib/components/Screenshot.svelte';
+	import stakeflowShot from '$lib/assets/stakeflow.png?w=1422;960;640&enhanced';
+	import hillsShot from '$lib/assets/1000hills.png?w=1422;960;640&enhanced';
+
+	/** Screenshots of each project's live site, keyed by slug. */
+	const screenshots = {
+		stakeflow: {
+			src: stakeflowShot,
+			alt: 'Stakeflow dashboard: balance chart, asset breakdown and a live crypto price table'
+		},
+		'1000hills': {
+			src: hillsShot,
+			alt: "1000 Hills Ministry home page: 'No one in Houston should face despair alone,' with Give today and Volunteer buttons"
+		}
+	};
 
 	const featured = projects.filter((p) => p.featured);
 	const rest = projects.filter((p) => !p.featured);
@@ -29,7 +44,14 @@
 			{#if rest.length}
 				<div class="grid">
 					{#each rest as project (project.slug)}
-						<ProjectCard {project} />
+						{@const shot = screenshots[/** @type {keyof typeof screenshots} */ (project.slug)]}
+						<ProjectCard {project}>
+							{#snippet media()}
+								{#if shot && project.links?.live}
+									<Screenshot src={shot.src} alt={shot.alt} href={project.links.live} />
+								{/if}
+							{/snippet}
+						</ProjectCard>
 					{/each}
 				</div>
 			{/if}

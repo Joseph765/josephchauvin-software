@@ -113,6 +113,8 @@ export const projects = [
 			code: 'https://github.com/Joseph765/moth-ui'
 		}
 	},
+	// Hidden for now: uncomment to show Stakeflow and 1000 Hills again.
+	/*
 	{
 		slug: 'stakeflow',
 		title: 'Stakeflow',
@@ -151,4 +153,5 @@ export const projects = [
 			code: 'https://github.com/Joseph765/1000hills'
 		}
 	}
+	*/
 ];

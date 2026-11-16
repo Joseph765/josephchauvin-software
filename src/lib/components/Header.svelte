@@ -36,10 +36,10 @@
 	}
 
 	header.scrolled {
-		background-color: color-mix(in srgb, var(--v-color-background) 72%, transparent);
+		background-color: color-mix(in srgb, var(--m-color-background) 72%, transparent);
 		backdrop-filter: blur(14px) saturate(140%);
 		-webkit-backdrop-filter: blur(14px) saturate(140%);
-		border-bottom-color: var(--v-color-border);
+		border-bottom-color: var(--m-color-border);
 	}
 
 	.inner {
@@ -47,7 +47,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: var(--v-space-m);
+		gap: var(--m-space-m);
 	}
 
 	.mark {
@@ -62,17 +62,17 @@
 		place-items: center;
 		width: 32px;
 		height: 32px;
-		border-radius: var(--v-radius);
-		background: var(--v-color-text);
-		color: var(--v-color-text-contrast);
-		font-weight: var(--v-font-weight-black);
-		font-size: var(--v-font-size-m);
+		border-radius: var(--m-radius);
+		background: var(--m-color-text);
+		color: var(--m-color-text-contrast);
+		font-weight: var(--m-font-weight-black);
+		font-size: var(--m-font-size-m);
 		letter-spacing: -0.04em;
 	}
 
 	.name {
-		font-weight: var(--v-font-weight-bold);
-		font-size: var(--v-font-size-m);
+		font-weight: var(--m-font-weight-bold);
+		font-size: var(--m-font-size-m);
 		opacity: 0;
 		transform: translateX(-4px);
 		transition:
@@ -94,15 +94,15 @@
 	nav a {
 		display: block;
 		padding: 6px 8px;
-		font-size: var(--v-font-size-m);
-		color: var(--v-color-text-weak);
+		font-size: var(--m-font-size-m);
+		color: var(--m-color-text-weak);
 		text-decoration: none;
 		transition: color 0.2s;
 	}
 
 	@media (pointer: fine) {
 		nav a:hover {
-			color: var(--v-color-text);
+			color: var(--m-color-text);
 		}
 	}
 

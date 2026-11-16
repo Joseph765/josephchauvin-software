@@ -1,19 +1,21 @@
 <!--
-	Anchor styled with Volt UI's button classes.
-	Volt's <Button href> drops the `variant` prop (it always renders `is-link`),
-	so link-buttons are rendered here with the correct variant class instead.
+	Moth UI <Button> rendered as a link, with an `external` shorthand
+	that opens in a new tab with safe rel attributes.
 -->
 <script>
-	/** @type {{ href: string, variant?: 'default' | 'secondary' | 'ghost', size?: 'm' | 'l', external?: boolean, children: import('svelte').Snippet, [key: string]: any }} */
+	import { Button } from 'moth-ui-svelte';
+
+	/** @type {{ href: string, variant?: 'default' | 'secondary' | 'tertiary', size?: 'm' | 'l', external?: boolean, children: import('svelte').Snippet, [key: string]: any }} */
 	let { href, variant = 'default', size = 'l', external = false, children, ...rest } = $props();
 </script>
 
-<a
+<Button
 	{href}
-	class="v-button is-{variant} is-size-{size}"
+	{variant}
+	{size}
 	target={external ? '_blank' : undefined}
-	rel="external noopener noreferrer"
+	rel={external ? 'external noopener noreferrer' : undefined}
 	{...rest}
 >
 	{@render children()}
-</a>
+</Button>

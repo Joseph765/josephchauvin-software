@@ -38,9 +38,9 @@
 		top: -3rem;
 		z-index: 20;
 		padding: 8px 14px;
-		border-radius: var(--v-radius);
-		background: var(--v-color-text);
-		color: var(--v-color-text-contrast);
+		border-radius: var(--m-radius);
+		background: var(--m-color-text);
+		color: var(--m-color-text-contrast);
 		text-decoration: none;
 		transition: top 0.2s;
 	}

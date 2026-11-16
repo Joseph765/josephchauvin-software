@@ -2,7 +2,7 @@
 	import { projects } from '$lib/content.js';
 	import { reveal } from '$lib/actions/reveal.js';
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
-	import VoltShowcase from '$lib/components/VoltShowcase.svelte';
+	import MothShowcase from '$lib/components/MothShowcase.svelte';
 
 	const featured = projects.filter((p) => p.featured);
 	const rest = projects.filter((p) => !p.featured);
@@ -19,8 +19,8 @@
 			{#each featured as project (project.slug)}
 				<ProjectCard {project}>
 					{#snippet media()}
-						{#if project.slug === 'volt-ui'}
-							<VoltShowcase />
+						{#if project.slug === 'moth-ui'}
+							<MothShowcase />
 						{/if}
 					{/snippet}
 				</ProjectCard>
@@ -35,9 +35,7 @@
 			{/if}
 		</div>
 
-		<p class="footnote mono" use:reveal>
-			↳ This site is built with Volt UI. The components above are live, so go ahead and click them.
-		</p>
+		<p class="footnote mono" use:reveal>↳ This site is built with Moth UI too.</p>
 	</div>
 </section>
 
@@ -49,18 +47,18 @@
 	.list {
 		display: flex;
 		flex-direction: column;
-		gap: var(--v-space-l);
+		gap: var(--m-space-l);
 	}
 
 	.grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
-		gap: var(--v-space-l);
+		gap: var(--m-space-l);
 	}
 
 	.footnote {
-		margin-top: var(--v-space-l);
-		font-size: var(--v-font-size-s);
-		color: var(--v-color-text-weaker);
+		margin-top: var(--m-space-l);
+		font-size: var(--m-font-size-s);
+		color: var(--m-color-text-weaker);
 	}
 </style>

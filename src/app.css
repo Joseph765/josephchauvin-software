@@ -1,4 +1,4 @@
-/* Site-level layout + type tokens, layered on top of Volt UI's --v-* tokens. */
+/* Site-level layout + type tokens, layered on top of Moth UI's --m-* tokens. */
 :root {
 	--site-max: 72rem;
 	--site-gutter: clamp(1rem, 4vw, 2.5rem);
@@ -10,7 +10,7 @@
 	--display-m: clamp(1.75rem, 2vw + 1rem, 2.5rem);
 
 	--ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-	--hairline: 1px solid var(--v-color-border);
+	--hairline: 1px solid var(--m-color-border);
 }
 
 html {
@@ -19,9 +19,9 @@ html {
 }
 
 body {
-	background-color: var(--v-color-background);
-	color: var(--v-color-text);
-	font-family: var(--v-font);
+	background-color: var(--m-color-background);
+	color: var(--m-color-text);
+	font-family: var(--m-font);
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
 	overflow-x: clip;
@@ -42,7 +42,7 @@ a {
 }
 
 :focus-visible {
-	outline: 2px solid var(--v-accent-11);
+	outline: 2px solid var(--m-accent-11);
 	outline-offset: 3px;
 	border-radius: 4px;
 }
@@ -64,29 +64,29 @@ a {
 .eyebrow {
 	display: flex;
 	align-items: center;
-	gap: var(--v-space-s);
-	font-family: var(--v-font-mono);
-	font-size: var(--v-font-size-s);
+	gap: var(--m-space-s);
+	font-family: var(--m-font-mono);
+	font-size: var(--m-font-size-s);
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
-	color: var(--v-color-text-weaker);
+	color: var(--m-color-text-weaker);
 }
 
 .eyebrow span:first-child {
-	color: var(--v-accent-11);
+	color: var(--m-accent-11);
 }
 
 .section-title {
 	font-size: var(--display-l);
-	font-weight: var(--v-font-weight-black);
+	font-weight: var(--m-font-weight-black);
 	letter-spacing: -0.03em;
 	line-height: 1.05;
-	margin-top: var(--v-space-m);
+	margin-top: var(--m-space-m);
 	text-wrap: balance;
 }
 
 .mono {
-	font-family: var(--v-font-mono);
+	font-family: var(--m-font-mono);
 }
 
 .visually-hidden {

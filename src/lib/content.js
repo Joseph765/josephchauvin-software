@@ -95,22 +95,22 @@ export const skills = [
 
 export const projects = [
 	{
-		slug: 'volt-ui',
-		title: 'Volt UI',
+		slug: 'moth-ui',
+		title: 'Moth UI',
 		featured: true,
-		tagline: 'A Svelte design system, built solo, end to end.',
+		tagline: 'The design system Svelte was missing. Built solo, end to end.',
 		description:
-			'Design tokens, accessible components and a documentation site for building consistent, high-quality interfaces fast. It keeps a UI cohesive without slowing anyone down.',
+			'A dark-first set of components for Svelte 5, designed together so an app looks finished the moment you install it. No theming, no config, and Svelte is the only peer dependency.',
 		role: 'Sole author: design, engineering, docs',
-		stack: ['Svelte', 'SvelteKit', 'CSS custom properties', 'npm'],
+		stack: ['Svelte 5', 'Vite', 'CSS custom properties', 'npm'],
 		highlights: [
-			{ value: '38', label: 'components' },
-			{ value: '135', label: 'design tokens' },
-			{ value: '6', label: 'color scales' }
+			{ value: '23', label: 'components' },
+			{ value: '6', label: 'color scales' },
+			{ value: '0', label: 'dependencies' }
 		],
 		links: {
-			docs: 'https://volt-ui.com/getting-started',
-			code: 'https://github.com/Joseph765/Volt-UI'
+			docs: 'https://www.moth-ui.com/getting-started',
+			code: 'https://github.com/Joseph765/moth-ui'
 		}
 	}
 ];

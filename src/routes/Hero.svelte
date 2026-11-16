@@ -1,6 +1,5 @@
 <script>
 	import { profile } from '$lib/content.js';
-	import CopyEmail from '$lib/components/CopyEmail.svelte';
 	import LinkButton from '$lib/components/LinkButton.svelte';
 	import SocialIcon from '$lib/components/SocialIcon.svelte';
 </script>
@@ -20,9 +19,8 @@
 		<p class="headline" style="--i: 2">{profile.headline}</p>
 
 		<p class="meta mono" style="--i: 3">
-			<span>{profile.location}</span>
-			{#each profile.focus as item (item)}
-				<span aria-hidden="true">·</span><span>{item}</span>
+			{#each profile.focus as item, i (item)}
+				{#if i}<span aria-hidden="true">·</span>{/if}<span>{item}</span>
 			{/each}
 		</p>
 
@@ -31,25 +29,6 @@
 				Resume
 				<SocialIcon name="download" size={18} />
 			</LinkButton>
-			<CopyEmail email={profile.email} />
-			<div class="socials">
-				<a
-					href={profile.links.github}
-					target="_blank"
-					rel="external noopener noreferrer"
-					aria-label="GitHub"
-				>
-					<SocialIcon name="github" />
-				</a>
-				<a
-					href={profile.links.linkedin}
-					target="_blank"
-					rel="external noopener noreferrer"
-					aria-label="LinkedIn"
-				>
-					<SocialIcon name="linkedin" />
-				</a>
-			</div>
 		</div>
 	</div>
 </section>
@@ -74,12 +53,12 @@
 		background:
 			radial-gradient(
 				60% 55% at 15% 0%,
-				color-mix(in srgb, var(--v-accent-9) 22%, transparent),
+				color-mix(in srgb, var(--m-accent-9) 22%, transparent),
 				transparent 70%
 			),
 			radial-gradient(
 				40% 40% at 90% 10%,
-				color-mix(in srgb, var(--v-info-9) 8%, transparent),
+				color-mix(in srgb, var(--m-info-9) 8%, transparent),
 				transparent 70%
 			);
 	}
@@ -89,8 +68,8 @@
 		position: absolute;
 		inset: 0;
 		background-image:
-			linear-gradient(var(--v-gray-3) 1px, transparent 1px),
-			linear-gradient(90deg, var(--v-gray-3) 1px, transparent 1px);
+			linear-gradient(var(--m-gray-3) 1px, transparent 1px),
+			linear-gradient(90deg, var(--m-gray-3) 1px, transparent 1px);
 		background-size: 64px 64px;
 		mask-image: radial-gradient(80% 70% at 30% 20%, black, transparent 75%);
 		opacity: 0.55;
@@ -100,7 +79,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
-		gap: var(--v-space-l);
+		gap: var(--m-space-l);
 	}
 
 	.content > * {
@@ -121,10 +100,10 @@
 		gap: 10px;
 		padding: 6px 14px 6px 12px;
 		border: var(--hairline);
-		border-radius: var(--v-radius-round);
-		background: color-mix(in srgb, var(--v-color-surface) 70%, transparent);
-		font-size: var(--v-font-size-m);
-		color: var(--v-color-text-weak);
+		border-radius: var(--m-radius-full);
+		background: color-mix(in srgb, var(--m-color-surface) 70%, transparent);
+		font-size: var(--m-font-size-m);
+		color: var(--m-color-text-weak);
 	}
 
 	.dot {
@@ -132,7 +111,7 @@
 		width: 8px;
 		height: 8px;
 		border-radius: 50%;
-		background: var(--v-success-9);
+		background: var(--m-success-9);
 	}
 
 	.dot::after {
@@ -153,11 +132,11 @@
 
 	h1 {
 		font-size: var(--display-xl);
-		font-weight: var(--v-font-weight-black);
+		font-weight: var(--m-font-weight-black);
 		line-height: 0.92;
 		letter-spacing: -0.045em;
 		margin-left: -0.04em;
-		background: linear-gradient(180deg, var(--v-color-text) 40%, var(--v-gray-10));
+		background: linear-gradient(180deg, var(--m-color-text) 40%, var(--m-gray-10));
 		-webkit-background-clip: text;
 		background-clip: text;
 		color: transparent;
@@ -168,7 +147,7 @@
 		max-width: 36ch;
 		font-size: clamp(1.25rem, 1.2vw + 1rem, 1.75rem);
 		line-height: 1.35;
-		color: var(--v-color-text-weak);
+		color: var(--m-color-text-weak);
 		text-wrap: pretty;
 	}
 
@@ -176,39 +155,15 @@
 		display: flex;
 		flex-wrap: wrap;
 		gap: 10px;
-		font-size: var(--v-font-size-m);
-		color: var(--v-color-text-weaker);
+		font-size: var(--m-font-size-m);
+		color: var(--m-color-text-weaker);
 	}
 
 	.actions {
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
-		gap: var(--v-space-m) var(--v-space-l);
-		margin-top: var(--v-space-s);
-	}
-
-	.socials {
-		display: flex;
-		gap: var(--v-space-xs);
-	}
-
-	.socials a {
-		display: grid;
-		place-items: center;
-		width: 40px;
-		height: 40px;
-		border-radius: var(--v-radius);
-		color: var(--v-color-text-weak);
-		transition:
-			color 0.2s,
-			background-color 0.2s;
-	}
-
-	@media (pointer: fine) {
-		.socials a:hover {
-			color: var(--v-color-text);
-			background: var(--v-color-surface-raised);
-		}
+		gap: var(--m-space-m) var(--m-space-l);
+		margin-top: var(--m-space-s);
 	}
 </style>

@@ -60,11 +60,11 @@
 <style>
 	.card {
 		display: grid;
-		gap: var(--v-space-xl);
+		gap: var(--m-space-xl);
 		padding: clamp(1.25rem, 3vw, 2.5rem);
 		border: var(--hairline);
 		border-radius: 20px;
-		background: linear-gradient(180deg, var(--v-gray-2), var(--v-gray-1));
+		background: linear-gradient(180deg, var(--m-gray-2), var(--m-gray-1));
 	}
 
 	.card.featured {
@@ -77,39 +77,39 @@
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
-		gap: var(--v-space-m);
+		gap: var(--m-space-m);
 	}
 
 	.role {
-		font-size: var(--v-font-size-s);
-		color: var(--v-accent-11);
+		font-size: var(--m-font-size-s);
+		color: var(--m-accent-11);
 		letter-spacing: 0.04em;
 	}
 
 	h3 {
 		font-size: var(--display-m);
-		font-weight: var(--v-font-weight-black);
+		font-weight: var(--m-font-weight-black);
 		letter-spacing: -0.03em;
 		line-height: 1;
 	}
 
 	.tagline {
-		font-size: var(--v-font-size-xl);
+		font-size: var(--m-font-size-xl);
 		line-height: 1.35;
-		color: var(--v-color-text);
+		color: var(--m-color-text);
 	}
 
 	.description {
-		font-size: var(--v-font-size-l);
+		font-size: var(--m-font-size-l);
 		line-height: 1.6;
-		color: var(--v-color-text-weak);
+		color: var(--m-color-text-weak);
 		max-width: 46ch;
 	}
 
 	.stats {
 		display: flex;
 		gap: clamp(1.5rem, 4vw, 2.5rem);
-		margin: var(--v-space-s) 0;
+		margin: var(--m-space-s) 0;
 	}
 
 	.stats div {
@@ -119,16 +119,16 @@
 
 	dd {
 		margin: 0;
-		font-size: var(--v-font-size-3xl);
-		font-weight: var(--v-font-weight-black);
+		font-size: var(--m-font-size-3xl);
+		font-weight: var(--m-font-weight-black);
 		letter-spacing: -0.03em;
 		line-height: 1;
 	}
 
 	dt {
 		margin-top: 6px;
-		font-size: var(--v-font-size-s);
-		color: var(--v-color-text-weaker);
+		font-size: var(--m-font-size-s);
+		color: var(--m-color-text-weaker);
 	}
 
 	.stack {
@@ -141,16 +141,16 @@
 	.stack li {
 		padding: 4px 10px;
 		border: var(--hairline);
-		border-radius: var(--v-radius-round);
-		font-size: var(--v-font-size-xs);
-		color: var(--v-color-text-weak);
+		border-radius: var(--m-radius-full);
+		font-size: var(--m-font-size-xs);
+		color: var(--m-color-text-weak);
 	}
 
 	.links {
 		display: flex;
 		flex-wrap: wrap;
-		gap: var(--v-space-s);
-		margin-top: var(--v-space-s);
+		gap: var(--m-space-s);
+		margin-top: var(--m-space-s);
 	}
 
 	.media {

@@ -1,5 +1,5 @@
 <script>
-	import '$volt/css/index.css';
+	import 'moth-ui-svelte/css/index.css';
 	import '../app.css';
 
 	let { children } = $props();

@@ -17,6 +17,9 @@
 				product. The fastest way to reach me is email.
 			</p>
 			<CopyEmail email={profile.email} size="l" />
+			<p class="location mono">
+				<SocialIcon name="map-pin" size={16} /> Based in {profile.location}
+			</p>
 		</div>
 
 		<footer>
@@ -44,28 +47,37 @@
 
 <style>
 	.contact {
-		padding-bottom: var(--v-space-xl);
+		padding-bottom: var(--m-space-xl);
 		background: radial-gradient(
 			50% 60% at 0% 100%,
-			color-mix(in srgb, var(--v-accent-9) 12%, transparent),
+			color-mix(in srgb, var(--m-accent-9) 12%, transparent),
 			transparent 70%
 		);
 	}
 
 	.title {
-		margin: var(--v-space-m) 0 var(--v-space-l);
+		margin: var(--m-space-m) 0 var(--m-space-l);
 		font-size: var(--display-l);
-		font-weight: var(--v-font-weight-black);
+		font-weight: var(--m-font-weight-black);
 		letter-spacing: -0.035em;
 		line-height: 1.02;
 	}
 
 	.lede {
 		max-width: 48ch;
-		margin-bottom: var(--v-space-xl);
-		font-size: var(--v-font-size-l);
+		margin-bottom: var(--m-space-xl);
+		font-size: var(--m-font-size-l);
 		line-height: 1.6;
-		color: var(--v-color-text-weak);
+		color: var(--m-color-text-weak);
+	}
+
+	.location {
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		margin-top: var(--m-space-l);
+		font-size: var(--m-font-size-s);
+		color: var(--m-color-text-weaker);
 	}
 
 	footer {
@@ -73,18 +85,18 @@
 		flex-wrap: wrap;
 		justify-content: space-between;
 		align-items: center;
-		gap: var(--v-space-m);
+		gap: var(--m-space-m);
 		margin-top: clamp(5rem, 12vw, 9rem);
-		padding-top: var(--v-space-l);
+		padding-top: var(--m-space-l);
 		border-top: var(--hairline);
-		font-size: var(--v-font-size-m);
-		color: var(--v-color-text-weaker);
+		font-size: var(--m-font-size-m);
+		color: var(--m-color-text-weaker);
 	}
 
 	ul {
 		display: flex;
 		flex-wrap: wrap;
-		gap: var(--v-space-l);
+		gap: var(--m-space-l);
 		list-style: none;
 	}
 
@@ -92,14 +104,14 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 6px;
-		color: var(--v-color-text-weak);
+		color: var(--m-color-text-weak);
 		text-decoration: none;
 		transition: color 0.2s;
 	}
 
 	@media (pointer: fine) {
 		footer a:hover {
-			color: var(--v-color-text);
+			color: var(--m-color-text);
 		}
 	}
 </style>

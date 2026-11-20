@@ -1,5 +1,5 @@
 // Single source of truth for the site's copy.
-// Source: static/joseph-chauvin-resume.pdf (2026 resume).
+// Source: static/Joseph_Chauvin_Resume_Nov_2026.pdf (November 2026 resume).
 
 export const profile = {
 	name: 'Joseph Chauvin',
@@ -11,8 +11,8 @@ export const profile = {
 	email: 'joseph.chauvin102@gmail.com',
 	available: true,
 	resume: {
-		href: '/joseph-chauvin-resume.pdf',
-		filename: 'Joseph Chauvin Resume.pdf'
+		href: '/Joseph_Chauvin_Resume_Nov_2026.pdf',
+		filename: 'Joseph_Chauvin_Resume_Nov_2026.pdf'
 	},
 	links: {
 		github: 'https://github.com/Joseph765',
@@ -22,7 +22,7 @@ export const profile = {
 
 export const bio = [
 	"I'm a front-end engineer with 3+ years building scalable design systems and real-time dashboards used directly by leadership, in React, Next.js and SvelteKit.",
-	'I care about the layer between design and code: tokens, components and the small interaction details that make an interface feel considered. SvelteKit is my favorite place to build.'
+	"I care about the layer between design and code: tokens, components and the small interaction details that make an interface feel considered. SvelteKit is my favorite place to build. I'm also big on AI tools: they speed up my workflow and open up ideas I wouldn't have had time to explore before."
 ];
 
 /** Set to false to hide the career-break row in the timeline. */
@@ -84,7 +84,8 @@ export const skills = [
 			'Accessibility',
 			'Responsive layout',
 			'SVG',
-			'Data viz (Chart.js)'
+			'Data viz (Chart.js)',
+			'AI development'
 		]
 	},
 	{
@@ -93,26 +94,33 @@ export const skills = [
 	}
 ];
 
+/**
+ * @typedef {{ value: string, label: string }} Stat
+ * @typedef {{ live?: string, docs?: string, code?: string }} Links
+ * @typedef {{ slug: string, title: string, featured?: boolean, status?: string, tagline: string, description: string, role: string, stack: string[], highlights?: Stat[], points?: string[], links?: Links }} Project
+ */
+
+/** @type {Project[]} */
 export const projects = [
 	{
 		slug: 'moth-ui',
 		title: 'Moth UI',
 		featured: true,
-		tagline: 'The design system Svelte was missing. Built solo, end to end.',
+		tagline: 'A design system for Svelte and React. Built solo, end to end.',
 		description:
-			'A dark-first set of components for Svelte 5, designed together so an app looks finished the moment you install it. No theming, no config, and Svelte is the only peer dependency.',
+			'Polished components with a look all their own: soft ambient light, light and dark themes designed token by token, and accessibility built in. The same components ship for Svelte and React, so an app looks finished the moment you install it. No theming, no config, and the framework is the only peer dependency.',
 		role: 'Sole author: design, engineering, docs',
-		stack: ['Svelte 5', 'Vite', 'CSS custom properties', 'npm'],
+		stack: ['Svelte 5', 'React', 'Vite', 'CSS custom properties', 'npm'],
 		highlights: [
-			{ value: '23', label: 'components' },
-			{ value: '6', label: 'color scales' },
+			{ value: '26', label: 'components' },
+			{ value: '2', label: 'frameworks' },
 			{ value: '0', label: 'dependencies' }
 		],
 		links: {
-			docs: 'https://www.moth-ui.com/getting-started',
+			docs: 'https://www.moth-ui.com',
 			code: 'https://github.com/Joseph765/moth-ui'
 		}
-	},
+	}
 	// Hidden for now: uncomment to show Stakeflow and 1000 Hills again.
 	/*
 	{

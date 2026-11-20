@@ -1,4 +1,5 @@
 <script>
+	import { Avatar } from 'moth-ui-svelte';
 	import { profile } from '$lib/content.js';
 
 	let scrolled = $state(false);
@@ -9,7 +10,7 @@
 <header class:scrolled>
 	<div class="container inner">
 		<a class="mark" href="#top" aria-label="{profile.name}, back to top">
-			<span class="monogram">JC</span>
+			<Avatar name={profile.name} />
 			<span class="name">{profile.name}</span>
 		</a>
 		<nav aria-label="Primary">
@@ -55,19 +56,6 @@
 		align-items: center;
 		gap: 10px;
 		text-decoration: none;
-	}
-
-	.monogram {
-		display: grid;
-		place-items: center;
-		width: 32px;
-		height: 32px;
-		border-radius: var(--m-radius);
-		background: var(--m-color-text);
-		color: var(--m-color-text-contrast);
-		font-weight: var(--m-font-weight-black);
-		font-size: var(--m-font-size-m);
-		letter-spacing: -0.04em;
 	}
 
 	.name {

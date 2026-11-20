@@ -1,6 +1,6 @@
 <script>
 	import { profile } from '$lib/content.js';
-	import LinkButton from '$lib/components/LinkButton.svelte';
+	import { Button } from 'moth-ui-svelte';
 	import SocialIcon from '$lib/components/SocialIcon.svelte';
 </script>
 
@@ -25,10 +25,10 @@
 		</p>
 
 		<div class="actions" style="--i: 4">
-			<LinkButton href={profile.resume.href} download={profile.resume.filename}>
+			<Button href={profile.resume.href} size="l" download={profile.resume.filename}>
 				Resume
 				<SocialIcon name="download" size={18} />
-			</LinkButton>
+			</Button>
 		</div>
 	</div>
 </section>

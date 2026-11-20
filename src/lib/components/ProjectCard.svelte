@@ -1,13 +1,9 @@
 <script>
 	import { reveal } from '$lib/actions/reveal.js';
-	import LinkButton from './LinkButton.svelte';
+	import { Button } from 'moth-ui-svelte';
 	import SocialIcon from './SocialIcon.svelte';
 
-	/**
-	 * @typedef {{ value: string, label: string }} Stat
-	 * @typedef {{ live?: string, docs?: string, code?: string }} Links
-	 * @typedef {{ slug: string, title: string, featured?: boolean, status?: string, tagline: string, description: string, role: string, stack: string[], highlights?: Stat[], points?: string[], links?: Links }} Project
-	 */
+	/** @typedef {import('$lib/content.js').Project} Project */
 
 	/** @type {{ project: Project, media?: import('svelte').Snippet }} */
 	let { project, media } = $props();
@@ -53,19 +49,24 @@
 		{#if project.links}
 			<div class="links">
 				{#if project.links.live}
-					<LinkButton href={project.links.live} external size="m">
+					<Button href={project.links.live} target="_blank" rel="external noopener noreferrer">
 						Visit site <SocialIcon name="arrow-up-right" size={16} />
-					</LinkButton>
+					</Button>
 				{/if}
 				{#if project.links.docs}
-					<LinkButton href={project.links.docs} external size="m">
+					<Button href={project.links.docs} target="_blank" rel="external noopener noreferrer">
 						View docs <SocialIcon name="arrow-up-right" size={16} />
-					</LinkButton>
+					</Button>
 				{/if}
 				{#if project.links.code}
-					<LinkButton href={project.links.code} external variant="secondary" size="m">
+					<Button
+						href={project.links.code}
+						target="_blank"
+						rel="external noopener noreferrer"
+						variant="secondary"
+					>
 						<SocialIcon name="github" size={16} /> Source
-					</LinkButton>
+					</Button>
 				{/if}
 			</div>
 		{/if}

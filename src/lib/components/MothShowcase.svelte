@@ -10,7 +10,7 @@
 	</div>
 	<enhanced:img
 		src={hero}
-		alt="Moth UI docs home page: the headline 'The design system Svelte was missing.' beside a Team plan pricing card built from Moth components"
+		alt="Moth UI docs home page: the headline 'Drawn to the light' beside a Team plan pricing card built from Moth components"
 		sizes="(min-width: 960px) 640px, 100vw"
 		loading="lazy"
 	/>
